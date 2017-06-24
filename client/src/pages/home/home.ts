@@ -18,4 +18,15 @@ export class HomePage {
     })
   }
 
+  postQuote(){
+    this.homeService.postQuote(this.quote);
+    this.homeService.getAllQuotes().subscribe(data => {
+      this.quotes = data;
+    })
+  }
+
+  quote = {
+    message: ''
+  }
+
 }
