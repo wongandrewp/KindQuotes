@@ -45,9 +45,10 @@ public class QuoteController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     public ResponseEntity<Quote> updateQuote(@PathVariable("id") long id, @RequestBody Quote quote){
-//        quoteRepository.findOne(id).setMessage(quote.getMessage());
-        quoteRepository.delete(id);
-        quoteRepository.save(quote);
+        Quote currentQuote = quoteRepository.findOne(id);
+        currentQuote.setId(quote.getId());
+        currentQuote.setMessage(quote.getMessage());
+        quoteRepository.save(currentQuote);
         return new ResponseEntity<Quote>(quote, HttpStatus.OK);
     }
 

@@ -15,6 +15,11 @@ public class Quote {
     private String message;
 
     public Quote(){};
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
     public Quote(String msg){
         this.message = msg;
     }
