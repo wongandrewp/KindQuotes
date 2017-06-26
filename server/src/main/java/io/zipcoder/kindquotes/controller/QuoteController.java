@@ -18,33 +18,33 @@ public class QuoteController {
     private QuoteRepository quoteRepository;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public ResponseEntity<ArrayList<Quote>> getAllQuotes(){
+    public ResponseEntity<ArrayList<Quote>> getAllQuotes() {
         ArrayList<Quote> quotes = new ArrayList<>();
         quoteRepository.findAll().forEach(quotes::add);
         return new ResponseEntity<>(quotes, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public ResponseEntity<Quote> getQuoteById(@PathVariable long id){
+    public ResponseEntity<Quote> getQuoteById(@PathVariable long id) {
         Quote quote = quoteRepository.findOne(id);
         return new ResponseEntity<>(quote, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/", method = RequestMethod.POST)
-    public ResponseEntity<Quote> createQuote(@RequestBody Quote quote){
+    public ResponseEntity<Quote> createQuote(@RequestBody Quote quote) {
         quoteRepository.save(quote);
         return new ResponseEntity<>(quote, HttpStatus.CREATED);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public ResponseEntity<Quote> deleteQuote(@PathVariable("id") long id){
+    public ResponseEntity<Quote> deleteQuote(@PathVariable("id") long id) {
         Quote quote = quoteRepository.findOne(id);
         quoteRepository.delete(id);
         return new ResponseEntity<Quote>(quote, HttpStatus.NO_CONTENT);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-    public ResponseEntity<Quote> updateQuote(@PathVariable("id") long id, @RequestBody Quote quote){
+    public ResponseEntity<Quote> updateQuote(@PathVariable("id") long id, @RequestBody Quote quote) {
         Quote currentQuote = quoteRepository.findOne(id);
         currentQuote.setId(quote.getId());
         currentQuote.setMessage(quote.getMessage());

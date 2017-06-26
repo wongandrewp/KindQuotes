@@ -1,32 +1,36 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Welcome to Kind Quotes!
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
     <form (ngSubmit)="postQuote()">
+
       <ion-item>
         <ion-input type="text" [(ngModel)]="quote.message" name="quote"></ion-input>
       </ion-item>
+
       <button ion-button type="submit" block>Submit Quote</button>
+
     </form>
 
-  <!--<ion-input type="text" placeholder="Give us a kind quote!" name = "quote"></ion-input>
-  <button ion-button (click)="postQuote(quote)">Submit</button>-->
   <ion-list>
     <ion-item-sliding *ngFor="let quote of quotes">
+
       <ion-item (tap)="updateAlert(quote)">
        {{quote.message}}
       </ion-item>
+
        <ion-item-options>
           <button (click)="deleteQuote(quote)">
             <ion-icon name = "trash"></ion-icon>
             Delete
           </button>
       </ion-item-options>
+
     </ion-item-sliding>
   </ion-list>
 
