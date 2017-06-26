@@ -58,5 +58,5 @@ public class testController {
         assertEquals("Expected quote one returned", quoteOneString, actualList.get(0).getMessage());
         assertEquals("Expected quote two returned", quoteTwoString, actualList.get(1).getMessage());
     }
-    
+
 }

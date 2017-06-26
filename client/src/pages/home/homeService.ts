@@ -1,7 +1,7 @@
-import{Http, Response, Headers} from '@angular/http';
+import{Http, Response, Headers} from '@angular/http'; // http is service for remote server, response, response is what remote server returns, headers allow additional information to be passed with request or response
 import 'rxjs/add/operator/map';
-import {Observable} from 'rxjs/Observable';
-import {Injectable} from '@angular/core';
+import {Observable} from 'rxjs/Observable'; // collection arriving over time
+import {Injectable} from '@angular/core'; // dependency injection
 
 @Injectable()
 export class HomeService{
